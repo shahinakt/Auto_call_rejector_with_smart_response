@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Auto Call Rejector</string>
+    <string name="add_number">Add Number</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="blocked_call_notification">Blocked call from %s</string>
+    <string name="enter_number">Enter phone number</string>
+    <string name="invalid_number">Please enter a valid phone number</string>
+</resources>
