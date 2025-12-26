@@ -10,7 +10,10 @@ class AddNumberViewModel(private val blockedNumberDao: BlockedNumberDao) : ViewM
 
     fun addBlockedNumber(number: String) {
         viewModelScope.launch {
-            blockedNumberDao.insert(BlockedNumber(number = number))
+            val trimmed = number.trim()
+            if (trimmed.isNotEmpty()) {
+                blockedNumberDao.insert(BlockedNumber(number = trimmed))
+            }
         }
     }
 }

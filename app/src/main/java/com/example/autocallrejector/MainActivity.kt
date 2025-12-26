@@ -28,25 +28,16 @@ class MainActivity : ComponentActivity() {
         Manifest.permission.WRITE_CALL_LOG
     )
 
-    // Create a launcher to request multiple permissions
     private val requestPermissionsLauncher =
-        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
-            // You can check here if permissions were granted and update the UI accordingly
-            permissions.entries.forEach {
-                // val permissionName = it.key
-                // val isGranted = it.value
-            }
-        }
+        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { _ -> }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Add notification permission for Android 13+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             permissionsToRequest.add(Manifest.permission.POST_NOTIFICATIONS)
         }
 
-        // Launch the permission request
         requestPermissionsLauncher.launch(permissionsToRequest.toTypedArray())
 
         setContent {

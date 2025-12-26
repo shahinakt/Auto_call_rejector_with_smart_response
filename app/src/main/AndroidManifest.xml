@@ -42,7 +42,7 @@
 
         <!-- Call Screening Service -->
         <service
-            android:name=".service.CallScreeningService"
+            android:name=".service.AppCallScreeningService"
             android:exported="true"
             android:permission="android.permission.BIND_SCREENING_SERVICE"
             tools:ignore="PermissionImpliesUnsupportedChromeOsHardware">

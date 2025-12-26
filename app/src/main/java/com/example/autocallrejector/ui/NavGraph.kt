@@ -1,6 +1,7 @@
 package com.example.autocallrejector.ui
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -15,7 +16,7 @@ fun NavGraph(
     isDarkTheme: Boolean
 ) {
     val navController = rememberNavController()
-    val application = navController.context.applicationContext as AutoCallRejectorApplication
+    val application = LocalContext.current.applicationContext as AutoCallRejectorApplication
     NavHost(navController = navController, startDestination = "main") {
         composable("main") {
             val mainViewModel: MainViewModel = viewModel(
@@ -34,7 +35,7 @@ fun NavGraph(
             )
             AddNumberScreen(
                 viewModel = addNumberViewModel,
-                onSaveClick = { navController.popBackStack() }  // Navigate back after save
+                onSaveClick = { navController.popBackStack() }
             )
         }
     }
